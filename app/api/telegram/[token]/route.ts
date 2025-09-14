@@ -43,3 +43,8 @@ export async function GET(
   const params = await ctx.params;
   return NextResponse.json(params);
 }
+
+// 添加 HEAD 支持 tg的快速验证
+export async function HEAD() {
+  return NextResponse.json({}, { status: 200 });
+}
