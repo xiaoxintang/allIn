@@ -1,5 +1,5 @@
 "use client"
-import { Box, Card, CardContent, CardHeader, Container, Paper, Select, MenuItem, TextField, Typography, FormControl, InputLabel, Button, Grid, GridBaseProps } from "@mui/material";
+import { Box, Card, CardContent, CardHeader, Container, Paper, Select, MenuItem, TextField, Typography, FormControl, InputLabel, Button, Grid, GridBaseProps, Switch, FormControlLabel } from "@mui/material";
 const size: GridBaseProps['size'] = {
 	xs: 12,
 	sm: 6,
@@ -13,7 +13,7 @@ export default function Form() {
 		e.preventDefault();
 		console.log(e.currentTarget);
 		const formData = new FormData(e.currentTarget);
-		console.log(formData.values()); // 获取 name="age" 的值
+		console.log(formData.get('dnsLog'));
 
 	}
 	return <Box sx={{ flexGrow: 1 }}>
@@ -53,10 +53,7 @@ export default function Form() {
 									</TextField>
 								</Grid>
 								<Grid size={size}>
-									<TextField select label='启用 DNS 查询日志' name='dnsLog' fullWidth defaultValue={false}>
-										<MenuItem value>开启</MenuItem>
-										<MenuItem value={false}>关闭</MenuItem>
-									</TextField>
+									<FormControlLabel label='启用 DNS 查询日志' name='dnsLog' control={<Switch />} labelPlacement="start" />
 								</Grid>
 
 								<Grid size={size}>
