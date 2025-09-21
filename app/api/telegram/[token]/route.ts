@@ -18,7 +18,7 @@ export async function POST(
     const text = update.message.text;
 
     // 构造回复消息
-    const replyText = `你的chatId：${chatId}！`;
+    const replyText = `你的chatId：${chatId}`;
 
     // 调用 Telegram API 发送回复
     await fetch(`${getTelegramBaseURL(params.token)}/sendMessage`, {
