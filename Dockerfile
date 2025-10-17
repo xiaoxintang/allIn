@@ -46,7 +46,9 @@ ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
+# 新增：安装 cron、curl 和 bash（可选，如果坚持用 bash）
+RUN apk add --no-cache \
+  curl
 COPY --from=builder /app/public ./public
 
 # Automatically leverage output traces to reduce image size
